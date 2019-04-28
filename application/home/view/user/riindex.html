@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <link rel="stylesheet" href="__PUBLIC__/static/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/static/js/bootstrap.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<form action="{:url('User/riindex')}" method="grt">
+						<label for="">请输入时间</label>
+						<input type="text" name="chaxun"   value="" />
+						<input type="submit" value="查询"/>
+					</form>	
+					<table class="table table-hover table-striped">
+                <tr><th>编号</th><th>用户名</th><th>发言时间</th><th>操作</th></tr>
+               {foreach $list as $t}
+                <tr>
+                    <td>{$t.id}</td>
+                    <td>{$t.name}</td>
+                     <td>{$t.time1}</td>
+                   <td>
+					<a class="btn btn-danger btn-sm" href="{:url('User/xqing')}?id={$t.id}">
+					<span class="glyphicon glyphicon-edit"></span>详情</a>
+					</td>
+                </tr>
+                  {/foreach}
+                
+               
+            </table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
